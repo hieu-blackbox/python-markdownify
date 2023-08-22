@@ -252,9 +252,8 @@ class MarkdownConverter(object):
     def convert_code(self, el, text, convert_as_inline):
         if el.parent.name == 'pre':
             return text
-        return text
-        #converter = abstract_inline_conversion(lambda self: '`')
-        #return converter(self, el, text, convert_as_inline)
+        converter = abstract_inline_conversion(lambda self: '`')
+        return converter(self, el, text, convert_as_inline)
 
     convert_del = abstract_inline_conversion(lambda self: '~~')
 
